@@ -1,8 +1,9 @@
-﻿using System;
+﻿using FormsAssistControl.Model.Entities;
+using System;
 namespace FormsAssistControl
 {
 	//https://github.com/HumbertoJaimes
-	public class Student
+	public class Student : ObservableBaseObject, IKeyObject
 	{
 
 
@@ -11,7 +12,7 @@ namespace FormsAssistControl
 		public string Name
 		{
 			get { return name; }
-			set { name = value;  }
+			set { name = value; OnPropertyChanged(); }
 		}
 
 		private string lastName;
@@ -19,7 +20,7 @@ namespace FormsAssistControl
 		public string LastName
 		{
 			get { return lastName; }
-			set { lastName = value;  }
+			set { lastName = value; OnPropertyChanged(); }
 		}
 
 		private string group;
@@ -27,7 +28,7 @@ namespace FormsAssistControl
 		public string Group
 		{
 			get { return group; }
-			set { group = value;  }
+			set { group = value; OnPropertyChanged(); }
 		}
 
 		private string studentNumber;
@@ -35,7 +36,7 @@ namespace FormsAssistControl
 		public string StudentNumber
 		{
 			get { return studentNumber; }
-			set { studentNumber = value;  }
+			set { studentNumber = value; OnPropertyChanged(); }
 		}
 
 		private double average;
@@ -43,8 +44,18 @@ namespace FormsAssistControl
 		public double Average
 		{
 			get { return average; }
-			set { average = value; }
+			set { average = value; OnPropertyChanged(); }
 		}
 
-	}
+        public string Key
+        {
+            get;
+            set;
+        }
+
+        //public override string ToString()
+        //{
+        //    return $"{Name} {LastName}";
+        //}
+    }
 }
